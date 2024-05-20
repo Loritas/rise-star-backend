@@ -1,0 +1,6 @@
+# unecessary files
+/target
+.idea
+
+# only allow copy env.toml
+env.toml
