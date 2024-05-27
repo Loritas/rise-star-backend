@@ -1,7 +1,7 @@
-use serde::Deserialize;
-use anyhow::Result;
-use toml;
 use crate::config::db::init_db;
+use anyhow::Result;
+use serde::Deserialize;
+use toml;
 
 #[derive(Debug, Deserialize)]
 pub struct Env {
@@ -11,7 +11,7 @@ pub struct Env {
 
 #[derive(Debug, Deserialize)]
 pub struct Config {
-    pub author: String
+    pub author: String,
 }
 
 #[derive(Debug, Deserialize)]
@@ -27,7 +27,7 @@ pub struct Database {
 pub async fn init_config() -> Result<()> {
     let env = parse_env()?;
     init_db(&env).await?;
-    println!("{:?}", env);
+    // info!("{:?}", env);
     Ok(())
 }
 
